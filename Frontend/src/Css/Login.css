@@ -1,0 +1,67 @@
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+.login_form{
+    margin-top:15% ;
+    background-color: antiquewhite;
+    border: 1px solid gray;
+    border-radius: 20px;
+    width: 40%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 0 5px 5px rgb(71, 63, 63);
+
+}
+.login_form_field{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.input_field{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+.input_field label{
+    font-size: 20px;
+    
+
+}
+.input_field input{
+    width: 300px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding-left: 10px;
+    border: 1px solid gray;
+  
+}
+.input_field button{
+    width: 300px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding-left: 10px;
+    background-color: rgb(11, 29, 110);
+    border: none;
+    color: white;
+    cursor: pointer;
+  
+}
+.signup_field{
+    font-size: 20px;
+}
+.signup_field a{
+    text-decoration: none;
+    font-weight: 600;
+    
+    
+}

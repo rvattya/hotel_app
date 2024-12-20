@@ -1,0 +1,68 @@
+.signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+.signup_form{
+    margin-top:50px ;
+    background-color: antiquewhite;
+    border: 1px solid gray;
+    border-radius: 20px;
+    width: 40%;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 0 5px 5px rgb(71, 63, 63);
+
+}
+.signup_form_field{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.input_feild{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+.input_feild label{
+    font-size: 20px;
+    text-transform: capitalize;
+    
+
+}
+.input_feild input{
+    width: 300px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding-left: 10px;
+    border: 1px solid gray;
+  
+}
+.input_feild button{
+    width: 300px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding-left: 10px;
+    background-color: rgb(11, 29, 110);
+    border: none;
+    color: white;
+    cursor: pointer;
+  
+}
+.login_box{
+    font-size: 20px;
+}
+.login_box a{
+    text-decoration: none;
+    font-weight: 600;
+    
+    
+}

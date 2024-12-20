@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 100%;
+    background-color: aqua;
+}
+
+.first_container {
+    height: 40px;
+    width: 100%;
+    background-color: rgb(37, 113, 164);
+    color: white;
+}
+.first_box{
+    margin: 10px;
+    padding-left: 50px;
+    display: flex;
+    gap: 20px;
+}
+
+
+.second_container {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(209, 246, 246);
+}
+.logo_img{
+    font-size: 35px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.logo_img a{
+    text-decoration: none;
+    color: black;
+}
+.menus{
+    display: flex;
+    gap: 60px;
+
+}
+.menus a {
+    text-decoration: none;
+    color: Black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+
+}
+.login_signup a {
+    text-decoration: none;
+    color: Black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+
+}
+.search_form{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.search_form input{
+    border-radius: 10px;
+    height: 30px;
+    width: 200px;
+    padding-left: 15px;
+    border: 1px solid black;
+
+
+}
+.search_form button{
+    height: 30px;
+    width: 70px;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 600;
+    
+}
+.search_form button:hover{
+    border: none;
+    background-color: blue;
+    color: white;
+}
