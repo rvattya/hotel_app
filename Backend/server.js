@@ -7,10 +7,11 @@ const cors= require('cors');
 const UserRoutes= require('./Routes/UserRoutes')
 const AdminRoute= require('./Routes/AdminRoute')
 const path= require('path')
-
+const cookieparser= require('cookie-parser')
 app.use(cors());
 app.use(express.json());
-app.use('/uploads',express.static(path.join(__dirname,'uploads')));
+app.use(cookieparser());
+// app.use('/uploads',express.static(path.join(__dirname,'uploads')));
 const PORT= process.env.PORT;
 
 app.use('/',UserRoutes);

@@ -3,19 +3,27 @@ import '../Css/Login.css'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Adminlogin = () => {
+const Adminlogin = ({onLogin}) => {
     const [adminlogin, setAdminlogin] = useState({
         email: "",
         password: ""
     });
-    const naviget = useNavigate();
+    const navigate = useNavigate();
     
         const login = async (e) => {
             e.preventDefault();
             try {
                 const responce = await axios.post("http://localhost:1111/admin-login", adminlogin);
-                localStorage.setItem("token", responce.data.token);
-                naviget("/admin-panel");
+                console.log(responce);
+                if(responce.data.token){
+                  localStorage.setItem("token", responce.data.token);
+                  onLogin();
+                  navigate("/admin-panel");
+                }
+                else{
+                  console.log("errer");
+                  
+                }
             } catch (error) {
                 console.error(error);
                 alert("Invalid login credentials");
@@ -52,3 +60,5 @@ const Adminlogin = () => {
 }
 
 export default Adminlogin
+
+

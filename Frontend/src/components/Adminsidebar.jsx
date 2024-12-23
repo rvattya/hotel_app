@@ -29,7 +29,7 @@ const Adminsidebar = () => {
       <div className='admin-sidebar-comp ' >
         <Link to='/admin-panel'>
           <div className="logo  py-3 px-4 ">
-            <img src={logo} alt="Logo" className='w-[100px] h-[70px] m-auto' />
+            <img src={logo} alt="Logo" className='w-[220px] h-[70px] ' />
           </div>
         </Link>
         <div className="admin-sidebar-taps flex ">

@@ -1,0 +1,163 @@
+[
+    {
+      "hotelname": "67664d01ebf622fac012565d",
+      "roomname": "Ocean View Suite",
+      "roomrate": 250,
+      "capacity": 4,
+      "filenames": ["https://d2mo2a5fvrklap.cloudfront.net/app/uploads/sites/3/2023/02/15060527/DPSAS_P005-Alila-Ocean-View-Suite-2000x1125-1.jpg", "https://d2mo2a5fvrklap.cloudfront.net/app/uploads/sites/3/2022/07/19035047/oceanviewsuite-hero-desktop-1.jpg"],
+      "aboutroom": "Spacious suite with stunning ocean views."
+    },
+    {
+      "hotelname": "67664d01ebf622fac012565d",
+      "roomname": "Deluxe Room",
+      "roomrate": 180,
+      "capacity": 2,
+      "filenames": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSVDRiajFgRSxe7B54xwJLB_pTN5jh4oWlwQ&s", "https://q-xx.bstatic.com/xdata/images/hotel/max500/538797045.jpg?k=4ae65e1c1aadd1efb064c14c7292c1538e9f12769ab2d4a1bfe131a5d74417f8&o="],
+      "aboutroom": "Modern room with all essential amenities."
+    },
+    {
+      "hotelname": "67664d01ebf622fac012565e')",
+      "roomname": "Mountain View Cabin",
+      "roomrate": 300,
+      "capacity": 6,
+      "filenames": ["https://images.stockcake.com/public/6/4/e/64e06365-f48b-426f-891d-8af268a90d82_large/mountain-view-cabin-stockcake.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3mj5uLOR1HfHeCryrIz8O15QbkO0fXJ-fe0YD-XRfKpWLF9OVTRzYgFeIzlBDkhzlZj4&usqp=CAU"],
+      "aboutroom": "Rustic cabin with scenic mountain views."
+    },
+    {
+      "hotelname": "67664d01ebf622fac012565e",
+      "roomname": "Cozy Lodge Room",
+      "roomrate": 120,
+      "capacity": 2,
+      "filenames": ["https://i.pinimg.com/736x/da/15/ac/da15ac1e49b3a4d4da3376b9fe54d209.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdXnPYk3yozZ7CVwoSrnBPcF6kIBSMvG8rYaXbZiMLCTSRkngO3G0GE6V-AhrWqrr3SjU&usqp=CAU"],
+      "aboutroom": "Warm and comfortable room, ideal for couples."
+    },
+    {
+      "hotelname": "67664d01ebf622fac012565f",
+      "roomname": "City View Room",
+      "roomrate": 200,
+      "capacity": 3,
+      "filenames": ["https://img.freepik.com/premium-photo/luxurious-hotel-room-with-stunning-city-view-night_14117-901816.jpg", "https://img.freepik.com/premium-photo/modern-hotel-room-with-large-bed-stunning-view-city-skyline-sunset_14117-901738.jpg"],
+      "aboutroom": "Stylish room with a spectacular city view."
+    },
+    {
+      "hotelname": "67664d01ebf622fac012565f",
+      "roomname": "Penthouse Suite",
+      "roomrate": 500,
+      "capacity": 5,
+      "filenames": ["https://symphony.cdn.tambourine.com/the-dominick/media/cache/Dominick-Hotel-Accommodations-King-Guest-Room-2-5c005bac0bcf0-650x520.jpg", "https://symphony.cdn.tambourine.com/the-dominick/media/cache/Dominick-Hotel-Accommodations-One-Bed-Family-9-5bd3797726527-650x520.jpg"],
+      "aboutroom": "Luxurious penthouse with top-notch facilities."
+    },
+    {
+      "hotelname": "67664d01ebf622fac0125660",
+      "roomname": "Desert Escape Room",
+      "roomrate": 150,
+      "capacity": 2,
+      "filenames": ["https://cf.bstatic.com/xdata/images/hotel/max1024x768/495183057.jpg?k=13b61ac17841b60fe2579242ceb6951f21b9db675bce5a3ca6f8ab943c3a7ab5&o=&hp=1", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoiJsad7VcwAA_V6kXeHV58xwdzi2Juvg84adRUzXVe3LlwK6ctBSs1Yi2ubNf3Q24kTI&usqp=CAU"],
+      "aboutroom": "Cozy room with desert views and modern facilities."
+    },
+    {
+      "hotelname": "67664d01ebf622fac0125660",
+      "roomname": "Luxury Desert Suite",
+      "roomrate": 350,
+      "capacity": 4,
+      "filenames": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwWAiqXSpDQ_TlUxSpvY6wDm1CL7QAmyxHtw&s", "https://www.aman.com/sites/default/files/2023-12/amangiri_usa_-_accommodation-mesa_pool_suite_5.jpg"],
+      "aboutroom": "High-end suite with exclusive desert vistas."
+    },
+    {
+      "hotelname": "67664d01ebf622fac0125661",
+      "roomname": "Lakeside Cottage",
+      "roomrate": 280,
+      "capacity": 6,
+      "filenames": ["https://cf.bstatic.com/xdata/images/hotel/max1024x768/552297652.jpg?k=87fcf221a2a158e728ec7eaf68a4fb9f383b0fac1fc391b78a939118beb4bf73&o=&hp=1", "https://cf.bstatic.com/xdata/images/hotel/max1024x768/552296568.jpg?k=4bc42d8d39e01ace51557390c29f1d4dbdb9c608bfc08f9e3701291ce6bc17bb&o=&hp=1"],
+      "aboutroom": "Cottage with direct access to the serene lake."
+    },
+    {
+      "hotelname": "67664d01ebf622fac0125662",
+      "roomname": "Deluxe Lake Room",
+      "roomrate": 160,
+      "capacity": 3,
+      "filenames": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnbJ-tyndKEM4SpPY9aKgWEpDOIVU3icu-Vg&s", "https://www.theghotel.ie/wp-content/uploads/2020/09/Deluxe-Room.jpg"],
+      "aboutroom": "Elegant room with peaceful lake views."
+    },
+    {
+      "hotelname": "67664d01ebf622fac0125662",
+      "roomname": "Beachfront Room",
+      "roomrate": 220,
+      "capacity": 3,
+      "filenames": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC5AwdWEzfmogQrv3mXrdKWlnts4K5IQa4ow&s", "https://www.hotelscombined.in/rimg/himg/54/c1/43/expediav2-189231-b37a8f-788429.jpg?width=200&height=200&crop=true"],
+      "aboutroom": "Comfortable room steps away from the beach."
+    },
+    {
+      "hotelname": "67664d01ebf622fac0125662",
+      "roomname": "Seaside Suite",
+      "roomrate": 400,
+      "capacity": 5,
+      "filenames": ["https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/8d/b3/0f/ocean-front-honeymoon.jpg?w=700&h=-1&s=1", "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/8d/b3/2d/amazing-views-from-our.jpg?w=700&h=-1&s=1"],
+      "aboutroom": "Luxurious suite with panoramic ocean views."
+    },
+    {
+      "hotelname": "67664d01ebf622fac0125663",
+      "roomname": "Countryside Room",
+      "roomrate": 140,
+      "capacity": 2,
+      "filenames": ["https://blog.canadianloghomes.com/wp-content/uploads/2024/01/country-bedroom-ideas-3.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSViqpsOR0cbmAf2aiZNb4c-di4GsXE3oiyIH0KRhjLOwCyv0DbEv8hr00KEFb59z0VBH4&usqp=CAU"],
+      "aboutroom": "Quiet room overlooking lush green fields."
+    },
+    {
+      "hotelname": "67664d01ebf622fac0125664",
+      "roomname": "Farmhouse Suite",
+      "roomrate": 270,
+      "capacity": 4,
+      "filenames": ["https://b-cdn.springnest.com/media/img/192/wilk17839d19c12.jpg?width=800", "https://b-cdn.springnest.com/media/img/192/wilk17924d8a0b6.jpg?crop=6240%2C3855%2C0%2C151&width=620"],
+      "aboutroom": "Spacious suite with a charming countryside vibe."
+    },
+    {
+      "hotelname": "67664d01ebf622fac0125664",
+      "roomname": "Royal Deluxe Room",
+      "roomrate": 240,
+      "capacity": 3,
+      "filenames": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLo8qqdbHwS8CM6eCVyb2kmT5dus28WOWeZQ&s", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPzb7zsvH6vSg_68fgonWM3CtUIawh5_b6yJYzx8GLFJR52n3hfF7O3LzgbcFqw2y1BxQ&usqp=CAU"],
+      "aboutroom": "Lavish room designed for royalty."
+    },
+    {
+      "hotelname": "67664d01ebf622fac0125665",
+      "roomname": "Grand Ballroom Suite",
+      "roomrate": 600,
+      "capacity": 8,
+      "filenames": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEPpDw55ufcix8pmxoPdsu7i3z0uwL7gPQWw&s", "https://ovt.occasionvenue.com/files/venue_gallery/8c620_ITC-Grand-Chola-13.jpg"],
+      "aboutroom": "Elegant suite featuring a private ballroom."
+    },
+    {
+      "hotelname": "67664d01ebf622fac0125665",
+      "roomname": "Snowy Cabin",
+      "roomrate": 200,
+      "capacity": 4,
+      "filenames": ["https://images.stockcake.com/public/7/3/1/731d7dd7-1ff6-4436-97f0-05d8689719e0_large/cozy-winter-cabin-stockcake.jpg", "https://images.stockcake.com/public/f/f/9/ff93a0ab-9bcb-4dd9-993b-80d61c87fb47_large/cozy-winter-cabin-stockcake.jpg"],
+      "aboutroom": "Cozy cabin perfect for winter getaways."
+    },
+    {
+      "hotelname": "67664d01ebf622fac0125666",
+      "roomname": "Ice Palace Suite",
+      "roomrate": 500,
+      "capacity": 6,
+      "filenames": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpA_xxE366vIyO3UNGHuTWXz_t9FFa-qPzrQ&s", "https://tribuneonlineng.com/wp-content/uploads/2016/12/Ice-hotel.jpg"],
+      "aboutroom": "Luxurious suite with a frosty aesthetic."
+    },
+    {
+      "hotelname": "67664d01ebf622fac0125666",
+      "roomname": "Tropical Room",
+      "roomrate": 190,
+      "capacity": 3,
+      "filenames": ["https://www.shopinroom.com/wp-content/uploads/2024/06/tropical-bedroom-1.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZCiWxPV2QFVKmcB_qRdg4DkaRhnc2NUsYWtDEtHd7w-NjQU_97WV6YDOlMGYHRa75I4o&usqp=CAU"],
+      "aboutroom": "Vibrant room with a tropical feel."
+    },
+    {
+      "hotelname": "67664d01ebf622fac0125666",
+      "roomname": "Island Paradise Suite",
+      "roomrate": 450,
+      "capacity": 5,
+      "filenames": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO7wdSXz2WJ587q0W36ByIK_FRMTmEW25yZA&s", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKm9XoyQxCzCzmW2_nnjdSuZovp28c9f8BDfiVbY7u2uEcnLj58PkA3podGnFiVHIFMOA&usqp=CAU"],
+      "aboutroom": "Exclusive suite with breathtaking island views."
+    }
+  ]
+  

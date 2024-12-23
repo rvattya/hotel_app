@@ -1,39 +1,56 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const Allrooms = () => {
   // Sample room data
-  const [rooms, setRooms] = useState([
-    {
-      id: 1,
-      hotelName: "Grand Palace",
-      roomName: "Deluxe Suite",
-      roomRate: 150,
-      capacity: 2,
-      filenames: ["https://via.placeholder.com/40"],
-      aboutRoom: "A luxurious room with modern amenities.",
-    },
-    {
-      id: 2,
-      hotelName: "Sunrise Resort",
-      roomName: "Ocean View Room",
-      roomRate: 200,
-      capacity: 4,
-      filenames: ["https://via.placeholder.com/40"],
-      aboutRoom: "A spacious room with stunning ocean views.",
-    },
-  ]);
+  const [rooms, setRooms] = useState([]);
+
+  useEffect(()=>{
+    const fetchroom= async ()=>{
+      try {
+        const response= await axios.get("http://localhost:1111/all-rooms");
+        setRooms(response.data);
+      } catch (error) {
+        console.error("error room data not Fatch",error)
+        
+      }
+    };
+    fetchroom();
+
+
+  },[])
+
 
   // Edit Handler
-  const handleEdit = (id) => {
+  const handleEdit = async (id) => {
     alert(`Edit room with ID: ${id}`);
-    // Add your edit logic here (e.g., open a modal or navigate to an edit form)
+    const editroom= window.confirm("edit room details ");
+    if(editroom){
+      try {
+        await axios.put(`http://localhost:1111/rooms/${id}`);
+        setRooms(rooms.filter((room=> room.id !== id)));
+
+        
+      } catch (error) {
+        console.error("error found room not update",error)
+        
+      }
+    }
+   
   };
 
   // Delete Handler
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     const confirmed = window.confirm("Are you sure you want to delete this room?");
     if (confirmed) {
-      setRooms(rooms.filter((room) => room.id !== id));
+      try{
+
+        await axios.delete(`http://localhost:1111/rooms/${id}`);
+        setRooms(rooms.filter((room) => room.id !== id));
+      }
+      catch(error){
+        console.error("Error deleting room:", error);
+      }
     }
   };
 
@@ -51,7 +68,7 @@ const Allrooms = () => {
                 Room Name
               </th>
               <th className="px-4 py-2 text-left text-sm font-medium text-gray-600">
-                Room Rate ($)
+                Room Rate (₹)
               </th>
               <th className="px-4 py-2 text-left text-sm font-medium text-gray-600">
                 Capacity
@@ -73,9 +90,9 @@ const Allrooms = () => {
                 key={room.id}
                 className="border-t border-gray-200 hover:bg-gray-50"
               >
-                <td className="px-4 py-2 text-sm text-gray-700">{room.hotelName}</td>
-                <td className="px-4 py-2 text-sm text-gray-700">{room.roomName}</td>
-                <td className="px-4 py-2 text-sm text-gray-700">{room.roomRate}</td>
+                <td className="px-4 py-2 text-sm text-gray-700">{room.hotelname}</td>
+                <td className="px-4 py-2 text-sm text-gray-700">{room.roomname}</td>
+                <td className="px-4 py-2 text-sm text-gray-700">{room.roomrate}</td>
                 <td className="px-4 py-2 text-sm text-gray-700">{room.capacity}</td>
                 <td className="px-4 py-2 text-sm text-gray-700">
                   {room.filenames.map((file, index) => (
@@ -87,7 +104,7 @@ const Allrooms = () => {
                     />
                   ))}
                 </td>
-                <td className="px-4 py-2 text-sm text-gray-700">{room.aboutRoom}</td>
+                <td className="px-4 py-2 text-sm text-gray-700">{room.aboutroom}</td>
                 <td className="px-4 py-2 text-sm text-gray-700">
                   <button
                     onClick={() => handleEdit(room.id)}

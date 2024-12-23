@@ -10,6 +10,8 @@ ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tool
 
 
 const Admindashboard = () => {
+  console.log("inside deshboard");
+  
   const data = {
     labels: ['January', 'February', 'March', 'April', 'May'],
     datasets: [

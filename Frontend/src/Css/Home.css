@@ -136,33 +136,3 @@
     box-shadow:  0 0 5px black;
     /* border: 12px solid rgb(109, 9, 9); */
 }
-.review_section_box{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-image: linear-gradient(rgb(10, 78, 95),rgb(12, 12, 100));
-    border-radius: 20px;
-    margin: 30px;
-    padding: 10px;
-
-    
-
-}
-.review_section_box p{
-    font-size: 18px;
-    text-align: center;
-    color: rgb(230, 226, 226);
-}
-.review_section_box img{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-.review_section_box span{
-    color: white;
-    font-size: 25px;
-}
-.review_section_box h2{
-    color: white;
-}

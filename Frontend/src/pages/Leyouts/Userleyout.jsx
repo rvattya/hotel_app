@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from '../../components/Login'
 import Home from '../User/Home'
 import Contact from '../User/Contact'
@@ -9,15 +9,19 @@ import Footer from '../../components/Footer'
 import Hotellist from '../User/Hotellist'
 import Roomlist from '../User/Roomlist'
 import Signup from '../../components/Signup'
+import Adminlogin from '../../components/Adminlogin'
 
 
 const Userleyout = () => {
     return (
         <>
+
+
+            <Header />
             
-            
-            <Header/>
+
                 <Routes>
+                    <Route path="admin-login" element={<Adminlogin />} />
 
                     <Route path="/" element={<Home />} />
                     <Route path="/contact" element={<Contact />} />
@@ -28,9 +32,10 @@ const Userleyout = () => {
                     <Route path="/sign-up" element={<Signup />} />
 
                 </Routes>
-                <Footer/>
             
-                
+            <Footer />
+
+
         </>
     )
 }

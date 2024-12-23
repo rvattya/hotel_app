@@ -1,284 +1,101 @@
-// import React, { useState } from 'react';
-// import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-// import Adminsidebar from '../../components/Adminsidebar';
-// import Adminheader from '../../components/Adminheader';
-// import Admindashboard from '../Admin/Admindashboard';
-// import Addhotel from '../Admin/Addhotel';
-// import Addroom from '../Admin/Addroom';
-// import Allhotels from '../Admin/Allhotels';
-// import Allrooms from '../Admin/Allrooms';
-// import Signup from '../../components/Signup';
-// import Adduser from '../Admin/Adduser';
-// import Addbooking from '../Admin/Addbooking';
-// import AllUser from '../Admin/Alluser';
-// import Allbooking from '../Admin/Allbooking';
-// import Adminlogin from '../../components/Adminlogin';
-
-// const Adminleyout = () => {
-//   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-//   const handleLogin = () => {
-//     setIsAuthenticated(true);
-//   };
-
-//   const handleLogout = () => {
-//     setIsAuthenticated(false);
-//   };
-
-//   return (
-//     <BrowserRouter>
-//       <div className="flex flex-1">
-//         {isAuthenticated && (
-//           <div className="admin-sidebar w-[18%] h-[100vh] bg-gray-100 overflow-auto">
-//             <Adminsidebar />
-//           </div>
-//         )}
-//         <div className={`flex-1 m-4 ${isAuthenticated ? 'w-[82%]' : 'w-[100%]'}`}>
-//           {isAuthenticated && <Adminheader onLogout={handleLogout} />}
-//           <Routes>
-//             {/* Public Route */}
-//             <Route
-//               path="admin-login"
-//               element={
-//                 isAuthenticated ? (
-//                   <Navigate to="/admin-panel" replace />
-//                 ) : (
-//                   <Adminlogin onLogin={handleLogin} />
-//                 )
-//               }
-//             />
-//             {/* Protected Routes */}
-//             {isAuthenticated ? (
-//               <>
-//                 <Route path="admin-panel" element={<Admindashboard />} />
-//                 <Route path="add-hotel" element={<Addhotel />} />
-//                 <Route path="add-room" element={<Addroom />} />
-//                 <Route path="add-user" element={<Adduser />} />
-//                 <Route path="all-hotels" element={<Allhotels />} />
-//                 <Route path="all-rooms" element={<Allrooms />} />
-//                 <Route path="all-users" element={<AllUser />} />
-//                 <Route path="add-bookings" element={<Addbooking />} />
-//                 <Route path="all-booking" element={<Allbooking />} />
-//                 <Route path="sign-up" element={<Signup />} />
-//                 {/* Default Authenticated Route */}
-//                 <Route path="/" element={<Navigate to="admin-panel" replace />} />
-//               </>
-//             ) : (
-//               <Route path="*" element={<Navigate to="/admin-login" replace />} />
-//             )}
-//           </Routes>
-//         </div>
-//       </div>
-//     </BrowserRouter>
-//   );
-// };
-
-// export default Adminleyout;
-
-// import React from 'react';
-// import { BrowserRouter, Route, Routes  } from 'react-router-dom';
-// import Adminsidebar from '../../components/Adminsidebar';
-// import Adminheader from '../../components/Adminheader';
-// import Admindashboard from '../Admin/Admindashboard';
-// import Addhotel from '../Admin/Addhotel';
-// import Addroom from '../Admin/Addroom';
-// import Allhotels from '../Admin/Allhotels';
-// import Allrooms from '../Admin/Allrooms';
-// import Signup from '../../components/Signup';
-// import Adduser from '../Admin/Adduser';
-// import Addbooking from '../Admin/Addbooking';
-// import AllUser from '../Admin/Alluser';
-// import Allbooking from '../Admin/Allbooking';
-// import Adminlogin from '../../components/Adminlogin';
-
-// const Adminleyout = () => {
- 
-//   return (
-//     <BrowserRouter>
-    
-//     <div className="flex flex-1">
-      
-//         <div className="admin-sidebar w-[18%] h-[100vh] bg-gray-100 overflow-auto">
-//           <Adminsidebar />
-//         </div>
-      
-//       <div className={`flex-1 m-4  'w-[82%]' : 'w-[100%]'}`}>
-//          <Adminheader  />
-//         <Routes>
-          
-       
-//               <Route path="admin-panel" element={<Admindashboard />} />
-//               <Route path="add-hotel" element={<Addhotel />} />
-//               <Route path="add-room" element={<Addroom />} />
-//               <Route path="add-user" element={<Adduser />} />
-//               <Route path="all-hotels" element={<Allhotels />} />
-//               <Route path="all-rooms" element={<Allrooms />} />
-//               <Route path="all-users" element={<AllUser />} />
-//               <Route path="add-bookings" element={<Addbooking />} />
-//               <Route path="all-booking" element={<Allbooking />} />
-//               <Route path="sign-up" element={<Signup />} />
-              
-//         </Routes>
-//       </div>
-//     </div>
-//     </BrowserRouter>
-//   );
-// };
-
-// export default Adminleyout;
-
-// import React, { useState } from 'react';
-// import { Route, Routes, Navigate } from 'react-router-dom';
-// import Adminsidebar from '../../components/Adminsidebar';
-// import Adminheader from '../../components/Adminheader';
-// import Admindashboard from '../Admin/Admindashboard';
-// import Addhotel from '../Admin/Addhotel';
-// import Addroom from '../Admin/Addroom';
-// import Allhotels from '../Admin/Allhotels';
-// import Allrooms from '../Admin/Allrooms';
-// import Signup from '../../components/Signup';
-// import Adduser from '../Admin/Adduser';
-// import Addbooking from '../Admin/Addbooking';
-// import AllUser from '../Admin/Alluser';
-// import Allbooking from '../Admin/Allbooking';
-// import Adminlogin from '../../components/Adminlogin';
-
-// const Adminleyout = () => {
-//   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-//   const handleLogin = () => {
-//     setIsAuthenticated(true);
-//   };
-
-//   const handleLogout = () => {
-//     setIsAuthenticated(false);
-//   };
-
-//   return (
-//     <div className="flex flex-1">
-//       {isAuthenticated && (
-//         <div className="admin-sidebar w-[18%] h-[100vh] bg-gray-100 overflow-auto">
-//           <Adminsidebar />
-//         </div>
-//       )}
-//       <div className={`flex-1 m-4 ${isAuthenticated ? 'w-[82%]' : 'w-[100%]'}`}>
-//         {isAuthenticated && <Adminheader onLogout={handleLogout} />}
-//         <Routes>
-//           {/* Admin Login Route */}
-//           <Route
-//             path="admin-login"
-//             element={
-//               isAuthenticated ? (
-//                 <Navigate to="/admin/admin-panel" replace />
-//               ) : (
-//                 <Adminlogin onLogin={handleLogin} />
-//               )
-//             }
-//           />
-          
-//           {/* Protected Routes */}
-//           {isAuthenticated ? (
-//             <>
-//               <Route path="admin-panel" element={<Admindashboard />} />
-//               <Route path="add-hotel" element={<Addhotel />} />
-//               <Route path="add-room" element={<Addroom />} />
-//               <Route path="add-user" element={<Adduser />} />
-//               <Route path="all-hotels" element={<Allhotels />} />
-//               <Route path="all-rooms" element={<Allrooms />} />
-//               <Route path="all-users" element={<AllUser />} />
-//               <Route path="add-bookings" element={<Addbooking />} />
-//               <Route path="all-booking" element={<Allbooking />} />
-//               <Route path="sign-up" element={<Signup />} />
-//               {/* Redirect the default route to admin-panel */}
-//               <Route path="/" element={<Navigate to="admin-panel" replace />} />
-//             </>
-//           ) : (
-//             <Route path="*" element={<Navigate to="/admin/admin-login" replace />} />
-//           )}
-//         </Routes>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Adminleyout;
-
-import React, { useState } from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import Admindashboard from '../Admin/Admindashboard';
 import Adminsidebar from '../../components/Adminsidebar';
 import Adminheader from '../../components/Adminheader';
-import Admindashboard from '../Admin/Admindashboard';
 import Addhotel from '../Admin/Addhotel';
 import Addroom from '../Admin/Addroom';
 import Allhotels from '../Admin/Allhotels';
 import Allrooms from '../Admin/Allrooms';
-import Signup from '../../components/Signup';
 import Adduser from '../Admin/Adduser';
 import Addbooking from '../Admin/Addbooking';
 import AllUser from '../Admin/Alluser';
 import Allbooking from '../Admin/Allbooking';
 import Adminlogin from '../../components/Adminlogin';
+import Adminlogout from '../../components/Adminlogout';
+import Adminprofile from '../../components/Adminprofile';
+import Home from '../User/Home';
 
-const Adminlayout = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+const Adminleyout = () => {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const handleLogin = () => {
-    setIsAuthenticated(true);
-  };
+    // Sync isAuthenticated with local storage on component mount
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            setIsAuthenticated(true);
+        }
+    }, []);
 
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-  };
+    // Handle login
+    const handleLogin = () => {
+        const token = localStorage.getItem("token");
 
-  return (
-    <div className="flex flex-1">
-      {/* Sidebar only visible when authenticated */}
-      {isAuthenticated && (
-        <div className="admin-sidebar w-[18%] h-[100vh] bg-gray-100 overflow-auto">
-          <Adminsidebar />
-        </div>
-      )}
+        localStorage.setItem("token",token); // Simulating a token
+        setIsAuthenticated(true);
+        console.log("Admin access granted successfully");
+    };
 
-      <div className={`flex-1 m-4 ${isAuthenticated ? 'w-[82%]' : 'w-[100%]'}`}>
-        {/* Header only visible when authenticated */}
-        {isAuthenticated && <Adminheader onLogout={handleLogout} />}
+    // Handle logout
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        setIsAuthenticated(false);
+        console.log("Admin logged out");
+    };
 
-        <Routes>
-          {/* Admin Login Route */}
-          <Route
-            path="admin-login"
-            element={
-              isAuthenticated ? (
-                <Navigate to="/admin/admin-panel" replace />
-              ) : (
-                <Adminlogin onLogin={handleLogin} />
-              )
-            }
-          />
+    const PrivateRoutes = ({ children }) => {
+        const token = localStorage.getItem("token");
+        return token ? children : <Navigate to="/admin-login" />;
+    };
 
-          {/* Protected Routes */}
-          {isAuthenticated ? (
-            <>
-              <Route path="admin-panel" element={<Admindashboard />} />
-              <Route path="add-hotel" element={<Addhotel />} />
-              <Route path="add-room" element={<Addroom />} />
-              <Route path="add-user" element={<Adduser />} />
-              <Route path="all-hotels" element={<Allhotels />} />
-              <Route path="all-rooms" element={<Allrooms />} />
-              <Route path="all-users" element={<AllUser />} />
-              <Route path="add-bookings" element={<Addbooking />} />
-              <Route path="all-booking" element={<Allbooking />} />
-              <Route path="sign-up" element={<Signup />} />
-              <Route path="/" element={<Navigate to="/admin/admin-panel" replace />} />
-            </>
-          ) : (
-            // Redirect unauthenticated users to the login page
-            <Route path="/" element={<Navigate to="/admin/admin-login" replace />} />
-          )}
-        </Routes>
-      </div>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Layout
+                isAuthenticated={isAuthenticated}
+                onLogout={handleLogout}
+                onLogin={handleLogin}
+                PrivateRoutes={PrivateRoutes}
+            />
+            
+        </BrowserRouter>
+    );
 };
 
-export default Adminlayout;
+const Layout = ({ isAuthenticated, onLogout, onLogin, PrivateRoutes }) => {
+    const location = useLocation(); // Now inside the BrowserRouter context
+
+    return (
+        <div className="flex">
+            {/* Render Admin Sidebar if authenticated */}
+            {isAuthenticated && (
+                <div className="admin-sidebar w-[18%] h-[100vh] bg-gray-100 overflow-auto">
+                    <Adminsidebar />
+                </div>
+            )}
+            <div className="flex-1 w-[80%]">
+                {/* Render Admin Header if authenticated and not on login page */}
+                {isAuthenticated && location.pathname !== '/admin-login' && (
+                    <Adminheader onLogout={onLogout} />
+                )}
+                <Routes>
+                    <Route path="/admin-login" element={<Adminlogin onLogin={onLogin} />} />
+                    <Route path="/admin-logout" element={<Adminlogout onLogout={onLogout} />} />
+                    {/* Protected Routes for Admin */}
+                    <Route path="/admin-panel" element={<PrivateRoutes><Admindashboard /></PrivateRoutes>} />
+                    
+                    <Route path="/add-hotel" element={<PrivateRoutes><Addhotel /></PrivateRoutes>} />
+                    <Route path="/add-room" element={<PrivateRoutes><Addroom /></PrivateRoutes>} />
+                    <Route path="/add-user" element={<PrivateRoutes><Adduser /></PrivateRoutes>} />
+                    <Route path="/all-hotels" element={<PrivateRoutes><Allhotels /></PrivateRoutes>} />
+                    <Route path="/all-rooms" element={<PrivateRoutes><Allrooms /></PrivateRoutes>} />
+                    <Route path="/all-users" element={<PrivateRoutes><AllUser /></PrivateRoutes>} />
+                    <Route path="/add-bookings" element={<PrivateRoutes><Addbooking /></PrivateRoutes>} />
+                    <Route path="/all-booking" element={<PrivateRoutes><Allbooking /></PrivateRoutes>} />
+                    <Route path="/admin-profile" element={<PrivateRoutes><Adminprofile /></PrivateRoutes>} />
+                </Routes>
+            </div>
+        </div>
+    );
+};
+
+export default Adminleyout;

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<body>
+  <div>
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="Email" required /> <br /><br />
+    <input type="password" id="password" placeholder="Password" required />
+    <br /><br />
+    <button onclick="login()">Login</button>
+  </div>
+  <script>
+    // async function login() {
+    //   const email = document.getElementById("email").value;
+    //   const password = document.getElementById("password").value;
+
+    //   const response = await fetch("http://localhost:3000/set-cookie", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     credentials: "include", // Required to send cookies
+    //     body: JSON.stringify({ email, password }),
+    //   });
+
+    //   const data = await response.json();
+
+    //   if (response.ok) {
+    //     alert(data.message); // Show success message
+    //   } else {
+    //     alert(data.message); // Show error message
+    //   }
+    // }
+
+    fetch("http://localhost:3000/set-cookie")
+    .then(()=>console.log("successful"))
+  </script>
+</body>
+</html>

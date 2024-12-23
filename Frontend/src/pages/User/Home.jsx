@@ -15,16 +15,19 @@ const Home = () => {
         <>
             <div className="main_container">
                 <div className="hero_box">
+                
+                    
+               
                     <div className="hero_box_first">
+                        
                         <h1>Find Your Perfect Stay or Book Your Dream Getaway Today</h1>
-
+                        <input type="text" placeholder="Search for hotels, locations, or deals..."
+                        className="w-full max-w-lg px-4 py-2 text-black rounded-md focus:outline-none focus:ring focus:ring-blue-300"/>
                         <p>Discover amazing hotels, resorts, and more in stunning destinations around the world.</p>
                         <button className='services_btn1'>Explore now</button>
 
                     </div>
-                    {/*<div className="hero_box_second">
-            <img src="https://vattyastech.com/wp-content/uploads/2024/11/Body-7.png" alt="" />
-          </div> */}
+                   
 
 
                 </div>
@@ -75,23 +78,29 @@ const Home = () => {
 
                 </div>
 
-                <div className="review_section">
-                    <Carousel cols={3} rows={1} gap={10} loop >
-                        {reviews.map((review, index) => (
-                            <Carousel.Item key={index}>
-                                <div className="review_section_box">
-                                    <span><FontAwesomeIcon icon={faGoogle} /></span>
-                                    <p>{review.reviewText}</p>
-                                    <img src={review.image} alt={review.name} />
-                                    <h2>{review.name}</h2>
-                                    <p>{review.title}</p>
-                                </div>
-                            </Carousel.Item>
-                        ))}
-
-                    </Carousel>
-
-                </div>
+               
+                <div className="bg-gray-100 py-12">
+            <h2 className="text-center text-3xl font-semibold text-gray-800 mb-8">Customer Reviews</h2>
+            <Carousel cols={3} rows={1} gap={10} loop>
+                {reviews.map((review, index) => (
+                    <Carousel.Item key={index}>
+                        <div className="bg-white shadow-lg rounded-lg p-6 text-center">
+                            <span className="text-4xl text-yellow-500 mb-4 inline-block">
+                                <FontAwesomeIcon icon={faGoogle} />
+                            </span>
+                            <p className="text-gray-600 italic mb-4">"{review.reviewText}"</p>
+                            <img 
+                                className="w-16 h-16 rounded-full mx-auto mb-4 border-2 border-gray-300"
+                                src={review.image} 
+                                alt={review.name} 
+                            />
+                            <h3 className="text-lg font-bold text-gray-700">{review.name}</h3>
+                            <p className="text-sm text-gray-500">{review.title}</p>
+                        </div>
+                    </Carousel.Item>
+                ))}
+            </Carousel>
+        </div>
 
 
             </div>
@@ -100,3 +109,4 @@ const Home = () => {
 }
 
 export default Home
+

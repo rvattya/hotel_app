@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom" 
+import { Link } from "react-router-dom"
 import { FaBars } from "react-icons/fa"
 import { FaUserAlt } from "react-icons/fa"
 import { MdCircleNotifications } from "react-icons/md"
@@ -60,17 +60,17 @@ const Adminheader = () => {
               {/* Dropdown Menu */}
               {open === "profile" && (
                 <div className="submenu absolute right-0 mt-2 w-48 bg-white text-gray-800 shadow-lg rounded-md z-10">
-                  <Link to="/" className="submenu-item block px-4 py-2 hover:bg-gray-200">
+                  <Link to="/admin-profile" className="submenu-item block px-4 py-2 hover:bg-gray-200">
                     Profile
                   </Link>
-                  <Link to="/edit-profile"className="submenu-item block px-4 py-2 hover:bg-gray-200">
+                  <Link to="/edit-profile" className="submenu-item block px-4 py-2 hover:bg-gray-200">
                     Edit Profile
                   </Link>
                   <hr className="border-gray-300" />
-                  <Link to="/settings"className="submenu-item block px-4 py-2 hover:bg-gray-200" >
+                  <Link to="/settings" className="submenu-item block px-4 py-2 hover:bg-gray-200" >
                     Settings
                   </Link>
-                  <Link to="/logout"className="submenu-item block px-4 py-2 text-red-500 hover:bg-gray-200" >
+                  <Link to="/admin-logout" onClick={() => {localStorage.removeItem("token");setOpen(null);}} className="submenu-item block px-4 py-2 text-red-500 hover:bg-gray-200" >
                     Log Out
                   </Link>
                 </div>

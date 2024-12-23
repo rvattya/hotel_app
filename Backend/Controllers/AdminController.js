@@ -6,26 +6,7 @@ const {singlefile}= require('../Middleweres/multerMiddleware')
 dotenv.config();
 
 
-//signup user and admin both can signup 
-// const signup = async (req, res) => {
-//     try {
-//         const { name, email, number, password,role } = req.body;
-//         const profileimg = req.file ? req.file.originalname : null;
-//         const hashpassword = await bcrypt.hash(password, 10);
-//         const user = new UserModel({
-//             name, email, password: hashpassword, number, role, profileimg
-//         });
-//         await user.save();
-//         res.status(200).json({ message: "user details saved successfully" });
-//         console.log(user);
 
-
-//     } catch (error) {
-//         res.status(500).send({ message: "somthing want rong Plz Try again latter" });
-
-//     }
-
-// };
 const signup = async (req, res) => {
     singlefile(req,res,async(err)=>{
         if(err){
@@ -77,8 +58,13 @@ const signup = async (req, res) => {
 
 const adminlogin = async (req, res) => {
     try {
+        console.log("inside admin login");
+        
         const { email, password } = req.body;
         const admin = await UserModel.findOne({ email });
+        console.log(req.body.email);
+        console.log(req.body.password);
+        
         if(!admin){
             return res.status(404).json({message:"admin not found"});
         }
@@ -94,7 +80,13 @@ const adminlogin = async (req, res) => {
         //generate token for isadmin
 
         const token = JWT.sign({ id: admin._id, email: admin.email, role: admin.role }, process.env.JWT_KEY, { expiresIn: "24h" });
-        res.status(200).json({ message: "Admin logged in successfully", token })
+        res.cookie("token", token, {httpOnly:true, secure: false,
+            path: "/admin-panel",
+        });
+        res.status(200).json({ message: "Admin logged in successfully", token });
+        console.log("Generated Token:", token);
+
+
 
     } catch (error) {
         res.status(500).json({ mesaage: "something want rong", error: error.mesaage });
@@ -103,28 +95,31 @@ const adminlogin = async (req, res) => {
     }
 
 };
-// const adminlogin = async (req, res) => {
-//     try {
-//       const admin = await Admin.findOne({ username: req.body.username });
-  
-//       if (!admin) {
-//         return res.status(404).json({ message: "Admin not found" });
-  
-//       }
-  
-//       const isPasswordValid = await bcrypt.compare(req.body.password, admin.password);
-  
-//       if (!isPasswordValid) {
-//         return res.status(401).json({ message: "Invalid password" });
-  
-//       }
-  
-  
-//       return res.status(200).json({ message: "Login successful", admin });
-//     } catch (error) {
-//       return res.status(500).json({ message: "Internal server error" });
-//     }
-//   };
+const Adminprofile= async(req,res)=>{
+const Token= req.cookies.token;
+if(!Token)return res.status(401).json({message: "Unathorizrd"});
+try {
+    const Admin= JWT.verify(Token, process.env.JWT_KEY);
+    res.status(200).json({message: "Admin profile", Admin});
+} catch (error) {
+    res.status(401).json({ message: "Unauthorized" });
+
+}
+
+};
+const Adminlogout= async (req, res)=>{
+    try{
+        
+        res.clearCookie("token",{path:"/"}).json({message:"Admin Logout Successful"});
+    }
+    catch(error){
+        res.status(500).json({ message: "Error during logout", error: error.message });
+
+
+    }
+
+}
+
 const getalluser = async (req, res) => {
     try {
         const user = await UserModel.find();
@@ -168,4 +163,4 @@ const deleteUser = async (req, res) => {
 };
 
 
-module.exports = { signup, adminlogin, updateUser, deleteUser, getUserById, getalluser };
+module.exports = {Adminlogout,Adminprofile, signup, adminlogin, updateUser, deleteUser, getUserById, getalluser };

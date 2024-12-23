@@ -1,41 +1,49 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const Allhotels = () => {
-  // Sample hotel data
-  const [hotels, setHotels] = useState([
-    {
-      id: 1,
-      hotelName: "Grand Palace",
-      hotelAddress: { city: "New York" },
-      hotelContactNumber: 1234567890,
-      hotelFacilities: ["Free WiFi", "Swimming Pool", "Spa"],
-      filename: ["https://via.placeholder.com/40"],
-      aboutHotel: "A luxury hotel in the heart of the city.",
-      totalRooms: 100,
-    },
-    {
-      id: 2,
-      hotelName: "Sunrise Resort",
-      hotelAddress: { city: "Los Angeles" },
-      hotelContactNumber: 9876543210,
-      hotelFacilities: ["Beach Access", "Bar", "Gym"],
-      filename: ["https://via.placeholder.com/40"],
-      aboutHotel: "A serene resort with stunning ocean views.",
-      totalRooms: 50,
-    },
-  ]);
+  const [hotels, setHotels] = useState([]);
+
+  // Fetch data from the API
+  useEffect(() => {
+    const fetchHotelData = async () => {
+      try {
+        const response = await axios.get("http://localhost:1111/all-hotels");
+        setHotels(response.data); 
+      } catch (error) {
+        console.error("Error fetching hotel data:", error);
+      }
+    };
+
+    fetchHotelData();
+  }, []);
 
   // Edit Handler
-  const handleEdit = (id) => {
+  const handleEdit = async (id) => {
     alert(`Edit hotel with ID: ${id}`);
-    // Add your edit logic here (e.g., open a modal to edit hotel details)
+    const edithotel= window.confirm("are you edit hotel data");
+    if(edithotel){
+      try {
+        await axios.put(`http://localhost:1111/hotels/${id}`);
+        setHotels(hotels.filter((hotel)=> hotel.id !== id));
+        
+      } catch (error) {
+        console.error(" error hotel data noty edit",error);  
+      }
+    }
+
   };
 
   // Delete Handler
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     const confirmed = window.confirm("Are you sure you want to delete this hotel?");
     if (confirmed) {
-      setHotels(hotels.filter((hotel) => hotel.id !== id));
+      try {
+        await axios.delete(`http://localhost:1111/hotels/${id}`);
+        setHotels(hotels.filter((hotel) => hotel.id !== id)); // Update the UI after deletion
+      } catch (error) {
+        console.error("Error deleting hotel:", error);
+      }
     }
   };
 
@@ -78,14 +86,14 @@ const Allhotels = () => {
                 key={hotel.id}
                 className="border-t border-gray-200 hover:bg-gray-50"
               >
-                <td className="px-4 py-2 text-sm text-gray-700">{hotel.hotelName}</td>
-                <td className="px-4 py-2 text-sm text-gray-700">{hotel.hotelAddress.city}</td>
-                <td className="px-4 py-2 text-sm text-gray-700">{hotel.hotelContactNumber}</td>
+                <td className="px-4 py-2 text-sm text-gray-700">{hotel.hotelname}</td>
+                <td className="px-4 py-2 text-sm text-gray-700">{hotel.hoteladdress.city}</td>
+                <td className="px-4 py-2 text-sm text-gray-700">{hotel.hotelcontectnumber}</td>
                 <td className="px-4 py-2 text-sm text-gray-700">
-                  {hotel.hotelFacilities.join(", ")}
+                  {hotel.hotelfacilities.join(", ")}
                 </td>
                 <td className="px-4 py-2 text-sm text-gray-700">
-                  {hotel.filename.map((file, index) => (
+                  {hotel.hotelImages.map((file, index) => (
                     <img
                       key={index}
                       src={file}
@@ -94,8 +102,8 @@ const Allhotels = () => {
                     />
                   ))}
                 </td>
-                <td className="px-4 py-2 text-sm text-gray-700">{hotel.aboutHotel}</td>
-                <td className="px-4 py-2 text-sm text-gray-700">{hotel.totalRooms}</td>
+                <td className="px-4 py-2 text-sm text-gray-700">{hotel.abouthotel}</td>
+                <td className="px-4 py-2 text-sm text-gray-700">{hotel.totalrooms}</td>
                 <td className="px-4 py-2 text-sm text-gray-700">
                   <button
                     onClick={() => handleEdit(hotel.id)}
@@ -120,3 +128,4 @@ const Allhotels = () => {
 };
 
 export default Allhotels;
+

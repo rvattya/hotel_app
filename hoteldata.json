@@ -1,0 +1,163 @@
+[
+    {
+      "hotalname": "Sunset Paradise",
+      "hotaladdress": [
+        {
+          "streetAddress": "123 Beach Road",
+          "city": "Miami",
+          "state": "Florida",
+          "pincode": "33101"
+        }
+      ],
+      "hotelcontectnumber": 1234567890,
+      "hotelfacilities": ["Free WiFi", "Swimming Pool", "Gym"],
+      "filename": ["https://cf.bstatic.com/xdata/images/hotel/max1024x768/227229877.jpg?k=e6f31610cb9136d95dbf96047bebbf3f2d534b72345b5bd14047f7e4f57cca25&o=&hp=1", "https://www.sunsetparadiseholidayhomes.com/dependencies/uploads/2020/04/pool4.jpg"],
+      "abouthotel": "A luxury resort offering breathtaking views of the ocean.",
+      "totalrooms": 120
+    },
+    {
+      "hotalname": "Mountain Retreat",
+      "hotaladdress": [
+        {
+          "streetAddress": "456 Hilltop Lane",
+          "city": "Denver",
+          "state": "Colorado",
+          "pincode": "80202"
+        }
+      ],
+      "hotelcontectnumber": 9876543210,
+      "hotelfacilities": ["Hiking Trails", "Spa", "Outdoor Pool"],
+      "filename": ["https://pix10.agoda.net/hotelImages/26072272/-1/92c1c86fbecd64085cbfec6b1099b1ab.jpg?ca=21&ce=0&s=414x232", "https://media-cdn.tripadvisor.com/media/photo-s/1d/93/0b/6c/the-jungle-mountain-retreat.jpg"],
+      "abouthotel": "Nestled in the mountains, perfect for nature lovers.",
+      "totalrooms": 80
+    },
+    {
+      "hotalname": "Urban Oasis",
+      "hotaladdress": [
+        {
+          "streetAddress": "789 Downtown Ave",
+          "city": "New York",
+          "state": "New York",
+          "pincode": "10001"
+        }
+      ],
+      "hotelcontectnumber": 5551234567,
+      "hotelfacilities": ["Rooftop Bar", "Business Center", "Fitness Room"],
+      "filename": ["https://img.easemytrip.com/emthotel-1084387/a/large/438800_1.jpg", "https://oh-cancun.com/_next/image?url=https%3A%2F%2Fspaceohrtest.sfo2.cdn.digitaloceanspaces.com%2Fassets%2Fimg%2Fhoteles%2Foh-the-urban-oasis%2Fheader%2Fheader-oh-full.jpg&w=3840&q=75"],
+      "abouthotel": "A modern hotel located in the heart of the city.",
+      "totalrooms": 200
+    },
+    {
+      "hotalname": "Desert Bloom",
+      "hotaladdress": [
+        {
+          "streetAddress": "321 Cactus Drive",
+          "city": "Phoenix",
+          "state": "Arizona",
+          "pincode": "85001"
+        }
+      ],
+      "hotelcontectnumber": 6021234567,
+      "hotelfacilities": ["Desert Tours", "Outdoor Pool", "Restaurant"],
+      "filename": ["https://media.vrbo.com/lodging/106000000/105350000/105343600/105343519/288986d2.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill", "https://media.scurto.net/cdn-cgi/image/width=1280/2014/media/404088.jpg"],
+      "abouthotel": "An oasis in the desert with unique activities.",
+      "totalrooms": 50
+    },
+    {
+      "hotalname": "Lakeside Inn",
+      "hotaladdress": [
+        {
+          "streetAddress": "567 Lakeview Blvd",
+          "city": "Chicago",
+          "state": "Illinois",
+          "pincode": "60601"
+        }
+      ],
+      "hotelcontectnumber": 3129876543,
+      "hotelfacilities": ["Lake View", "Fishing", "Restaurant"],
+      "filename": ["https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/aa/3b/46/lakeside-inn.jpg?w=1200&h=-1&s=1", "https://cf.bstatic.com/xdata/images/hotel/max1024x768/247150102.jpg?k=f85e02f714a139eb39e7bc1a2cca5d23d4a80a269c62a73360618dc06c202e4d&o=&hp=1"],
+      "abouthotel": "Charming inn located by the lake.",
+      "totalrooms": 30
+    },
+    {
+      "hotalname": "Coastal Breeze",
+      "hotaladdress": [
+        {
+          "streetAddress": "890 Ocean Drive",
+          "city": "Los Angeles",
+          "state": "California",
+          "pincode": "90001"
+        }
+      ],
+      "hotelcontectnumber": 3105556789,
+      "hotelfacilities": ["Beach Access", "Surfing Lessons", "Spa"],
+      "filename": ["https://symphony.cdn.tambourine.com/sea-breeze-beach-house/media/sea-breeze-beach-homepage-gallery-img3-630d1a4e165ef.jpg", "https://www.sovereign.com/-/media/bynder/sovereign-properties/barbados/sea-breeze-beach-house-luxury-collection/views/sea-breeze-2024-aerial-view-001-119497-hybris.jpg?rev=9219c255fc44478484efe66fc72decec"],
+      "abouthotel": "A perfect getaway for beach lovers.",
+      "totalrooms": 150
+    },
+    {
+      "hotalname": "Green Meadows",
+      "hotaladdress": [
+        {
+          "streetAddress": "123 Countryside Road",
+          "city": "Nashville",
+          "state": "Tennessee",
+          "pincode": "37201"
+        }
+      ],
+      "hotelcontectnumber": 6151236789,
+      "hotelfacilities": ["Countryside View", "Horse Riding", "Organic Meals"],
+      "filename": ["https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/0c/59/4b/green-meadows-resort.jpg?w=700&h=-1&s=1", "https://media-cdn.tripadvisor.com/media/photo-s/12/5e/ba/93/images-1-largejpg.jpg"],
+      "abouthotel": "A peaceful retreat surrounded by nature.",
+      "totalrooms": 40
+    },
+    {
+      "hotalname": "Royal Palace",
+      "hotaladdress": [
+        {
+          "streetAddress": "456 Regal Way",
+          "city": "San Francisco",
+          "state": "California",
+          "pincode": "94101"
+        }
+      ],
+      "hotelcontectnumber": 4155559876,
+      "hotelfacilities": ["Luxury Suites", "Fine Dining", "Ballroom"],
+      "filename": ["https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/349884057.jpg?k=f5bce23df76f5c05e09dc3809942d9f897f4a63d519f13abd4a6b3f34508cf2a&o=?s=375x210&ar=16x9", "https://cf.bstatic.com/xdata/images/hotel/max1024x768/518484939.jpg?k=c322c464c78991cf64b6fef315d39d0ba5bb5a7f993bead637c876dd4db7880a&o=&hp=1"],
+      "abouthotel": "A grand hotel offering unparalleled luxury.",
+      "totalrooms": 100
+    },
+    {
+      "hotalname": "Winter Wonderland",
+      "hotaladdress": [
+        {
+          "streetAddress": "789 Snowy Lane",
+          "city": "Anchorage",
+          "state": "Alaska",
+          "pincode": "99501"
+        }
+      ],
+      "hotelcontectnumber": 9071234567,
+      "hotelfacilities": ["Skiing", "Snowboarding", "Hot Springs"],
+      "filename": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnZonhJgvfpzDScPjx4bzIAnZyu8CNaNvRfA&s", "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/5d/5b/24/caption.jpg?w=1200&h=-1&s=1"],
+      "abouthotel": "A winter paradise with thrilling activities.",
+      "totalrooms": 60
+    },
+    {
+      "hotalname": "Tropical Haven",
+      "hotaladdress": [
+        {
+          "streetAddress": "321 Palm Drive",
+          "city": "Honolulu",
+          "state": "Hawaii",
+          "pincode": "96801"
+        }
+      ],
+      "hotelcontectnumber": 8089876543,
+      "hotelfacilities": ["Beach Access", "Water Sports", "Cultural Shows"],
+      "filename": ["https://img.freepik.com/premium-photo/modern-hotel-pool-tropical-haven-with-palm-trees_535844-4867.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHyqNWT51esKI9lKSfcZQudEwU3eR53R1aUoo_JM8ZunKWdE3yPtBDMJcfbtCHBRjRrHQ&usqp=CAU"],
+      "abouthotel": "A vibrant hotel with a tropical vibe.",
+      "totalrooms": 110
+    }
+  ]
+  

@@ -1,14 +1,86 @@
-import React from 'react'
-import '../../Css/Addhotel.css'
+import React, { useState } from "react";
+import "../../Css/Addhotel.css";
+import axios from "axios";
 
 const Addhotel = () => {
+  const [hoteldata, setHoteldata] = useState({
+    hotalname: "",
+    hoteladdress: {
+      cityname: "",
+      statename: "",
+      pincode: "",
+    },
+    hotelcontectnumber: "",
+    hotelfacilities: [],
+    filename: "",
+    abouthotel: "",
+    totalrooms: "",
+  });
+
+  // Handle input change for main fields
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setHoteldata((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Handle input change for nested hoteladdress fields
+  const handleAddressChange = (e) => {
+    const { name, value } = e.target;
+    setHoteldata((prevData) => ({
+      ...prevData,
+      hoteladdress: {
+        ...prevData.hoteladdress,
+        [name]: value,
+      },
+    }));
+  };
+
+  // Handle checkbox change for facilities
+  const handleFacilitiesChange = (e) => {
+    const { value, checked } = e.target;
+    setHoteldata((prevData) => ({
+      ...prevData,
+      hotelfacilities: checked
+        ? [...prevData.hotelfacilities, value]
+        : prevData.hotelfacilities.filter((facility) => facility !== value),
+    }));
+  };
+
+  // Handle form submission
+  const Addhoteldata = async (e) => {
+    e.preventDefault(); // Prevent form refresh
+    try {
+      await axios.post("http://localhost:1111/add-hotel", hoteldata);
+      alert("Hotel added successfully!");
+      setHoteldata({
+        hotalname: "",
+        hoteladdress: {
+          cityname: "",
+          statename: "",
+          pincode: "",
+        },
+        hotelcontectnumber: "",
+        hotelfacilities: [],
+        filename: "",
+        abouthotel: "",
+        totalrooms: "",
+      });
+    } catch (error) {
+      console.error(error);
+      alert("Error found, please try again later.");
+    }
+  };
 
   return (
-    <>
-       <div className="bg-blue-100 flex items-center justify-center min-h-screen">
+    <div className="bg-blue-100 flex items-center justify-center min-h-screen">
       <div className="container mx-auto px-4">
-        <form className="bg-gray-200 shadow-lg rounded-lg p-6 max-w-3xl mx-auto">
-          {/* Form Header */}
+        <form
+          className="bg-gray-200 shadow-lg rounded-lg p-6 max-w-3xl mx-auto"
+          onSubmit={Addhoteldata}
+        >
           <h2 className="text-2xl font-semibold mb-6 text-center text-gray-700">
             Add Hotel Details
           </h2>
@@ -16,49 +88,74 @@ const Addhotel = () => {
           {/* Hotel Name */}
           <div className="form-group mb-4">
             <label className="font-semibold text-gray-600">Hotel Name</label>
-            <input type="text" className="form-control" placeholder="Enter Hotel Name" />
+            <input
+              type="text"
+              name="hotalname"
+              value={hoteldata.hotalname}
+              onChange={handleInputChange}
+              placeholder="Enter Hotel Name"
+              className="form-control mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
+              required
+            />
           </div>
 
-          {/* Address and City */}
-          <div className="row mb-4">
-            <div className="col-md-6">
-              <label className="font-semibold text-gray-600">Address</label>
-              <input type="text" className="form-control" placeholder="Enter Address" />
-            </div>
-            <div className="col-md-6">
-              <label className="font-semibold text-gray-600">City Name</label>
-              <input type="text" className="form-control" placeholder="Enter City Name" />
-            </div>
+          {/* Address Details */}
+          <h3 className="text-lg font-semibold mb-4 text-gray-700">Address</h3>
+          <div className="form-group mb-4">
+            <label className="font-semibold text-gray-600">City Name</label>
+            <input
+              type="text"
+              name="cityname"
+              value={hoteldata.hoteladdress.cityname}
+              onChange={handleAddressChange}
+              placeholder="Enter City Name"
+              className="form-control mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
+              required
+            />
+          </div>
+          <div className="form-group mb-4">
+            <label className="font-semibold text-gray-600">State Name</label>
+            <input
+              type="text"
+              name="statename"
+              value={hoteldata.hoteladdress.statename}
+              onChange={handleAddressChange}
+              placeholder="Enter State Name"
+              className="form-control mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
+              required
+            />
+          </div>
+          <div className="form-group mb-4">
+            <label className="font-semibold text-gray-600">Pin Code</label>
+            <input
+              type="text"
+              name="pincode"
+              value={hoteldata.hoteladdress.pincode}
+              onChange={handleAddressChange}
+              placeholder="Enter Pin Code"
+              className="form-control mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
+              required
+            />
           </div>
 
-          {/* State and Pin Code */}
-          <div className="row mb-4">
-            <div className="col-md-6">
-              <label className="font-semibold text-gray-600">State Name</label>
-              <input type="text" className="form-control" placeholder="Enter State Name" />
-            </div>
-            <div className="col-md-6">
-              <label className="font-semibold text-gray-600">Pin Code</label>
-              <input type="text" className="form-control" placeholder="Enter Pin Code" />
-            </div>
-          </div>
-
-          {/* Contact and Total Rooms */}
-          <div className="row mb-4">
-            <div className="col-md-6">
-              <label className="font-semibold text-gray-600">Contact Number</label>
-              <input type="text" className="form-control" placeholder="Enter Contact Number" />
-            </div>
-            <div className="col-md-6">
-              <label className="font-semibold text-gray-600">Total Rooms</label>
-              <input type="number" className="form-control" placeholder="Enter Total Rooms" />
-            </div>
+          {/* Contact Number */}
+          <div className="form-group mb-4">
+            <label className="font-semibold text-gray-600">Contact Number</label>
+            <input
+              type="text"
+              name="hotelcontectnumber"
+              value={hoteldata.hotelcontectnumber}
+              onChange={handleInputChange}
+              placeholder="Enter Contact Number"
+              className="form-control mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
+              required
+            />
           </div>
 
           {/* Facilities */}
-          <div className="mb-4">
-            <label className="font-semibold text-gray-600 block mb-2">Facilities</label>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+          <div className="form-group mb-4">
+            <label className="font-semibold text-gray-600">Facilities</label>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-2">
               {[
                 "Free Wi-Fi",
                 "Swimming Pool",
@@ -68,20 +165,40 @@ const Addhotel = () => {
                 "24/7 Room Service",
               ].map((facility, index) => (
                 <div key={index}>
-                  <input type="checkbox" id={`facility-${index}`} className="mr-2" />
+                  <input
+                    type="checkbox"
+                    id={`facility-${index}`}
+                    value={facility}
+                    onChange={handleFacilitiesChange}
+                    checked={hoteldata.hotelfacilities.includes(facility)}
+                    className="mr-2"
+                  />
                   <label htmlFor={`facility-${index}`}>{facility}</label>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Hotel Images */}
-          <div className="mb-4">
+          {/* Total Rooms */}
+          <div className="form-group mb-4">
+            <label className="font-semibold text-gray-600">Total Rooms</label>
+            <input
+              type="number"
+              name="totalrooms"
+              value={hoteldata.totalrooms}
+              onChange={handleInputChange}
+              placeholder="Enter Total Rooms"
+              className="form-control mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
+              required
+            />
+          </div>
+           {/* Hotel Images */}
+           <div className="mb-4">
             <label className="font-semibold text-gray-600 block mb-2">Upload Hotel Images</label>
             <div className="row">
               {[1, 2, 3].map((index) => (
                 <div className="col-md-4 mb-2" key={index}>
-                  <input type="file" className="form-control-file" />
+                  <input type="file" className="form-control-file"  onChange={(e)=>setHoteldata(...hoteldata,[e.target.value])}/>
                 </div>
               ))}
             </div>
@@ -91,9 +208,13 @@ const Addhotel = () => {
           <div className="form-group mb-4">
             <label className="font-semibold text-gray-600">About Hotel</label>
             <textarea
-              className="form-control"
+              name="abouthotel"
+              value={hoteldata.abouthotel}
+              onChange={handleInputChange}
               rows="4"
               placeholder="Write about the hotel"
+              className="form-control mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
+              required
             ></textarea>
           </div>
 
@@ -109,9 +230,7 @@ const Addhotel = () => {
         </form>
       </div>
     </div>
-      
-    </>
-  )
-}
+  );
+};
 
-export default Addhotel
+export default Addhotel;
