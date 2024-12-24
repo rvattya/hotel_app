@@ -2,25 +2,19 @@ const UserModel = require('../Models/UserModel');
 const bcrypt = require('bcrypt');
 const JWT = require('jsonwebtoken');
 const dotenv = require('dotenv');
-const {singlefile}= require('../Middleweres/multerMiddleware')
+const {singleFileUpload}= require('../Middleweres/multerMiddleware')
 
 dotenv.config();
-
 const signup = async (req, res) => {
-    
-    
-    singlefile(req,res, async(err)=>{
-        console.log(req.file);
-        console.log("req.file");
-        
+    singleFileUpload(req,res,async(err)=>{
         if(err){
+            console.error("Multer error:", err);
             return res.status(403).json({message:err.message});
         }
         // if user not update profie photo
-        // if(!req.files || req.files.length=== 0){
-        //     return res.status(400).json({ message: "Please upload profile images." });
-
-        // }
+        if(!req.file){
+            return res.status(400).json({ message: "Please upload profile images." });
+        }
     
     try {
         let { name, email, phone, password, role, profileImage } = req.body;
@@ -40,10 +34,9 @@ const signup = async (req, res) => {
             email,
             phone,
             password: hashpassword,
-            profileImage: 
+            profileImage: req.file.path,
             role, // Will be set to 'user' if not provided
         });
-        //`/uploads/${req.file.filename}`
 
         const token = JWT.sign(
             { id: user._id, email: user.email, role: user.role },

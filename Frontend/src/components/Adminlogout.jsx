@@ -16,7 +16,9 @@ const Adminlogout = ({ onLogout }) => {
           console.log("logout Successfu");
           
           onLogout(); // Clear authentication state
-          navigate('/'); // Redirect to login page
+          console.log("logout admin");
+          
+          navigate('/admin-login'); // Redirect to login page
         } else {
           console.error('Logout failed:', response.data.message || 'Unknown error');
         }

@@ -23,5 +23,6 @@ router.get('/hotels',getAllHotels)
 router.get('/rooms',getAllRooms)
 router.get('/hotels/:id',userAuth,getHotelById)
 router.get('/rooms/:id',userAuth,getRoomById)
+router.get('/user-test',userAuth)
 
 module.exports= router

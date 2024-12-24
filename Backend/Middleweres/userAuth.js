@@ -7,14 +7,6 @@ const userAuth = (req, res, next) => {
     console.log('Extracted Token:', token);
 
     if (!token) return res.status(401).json({ message: 'Authentication failed! No token provided.' });
-
-    // try {
-    //     const decoded = jwt.verify(token, process.env.JWT_KEY);
-    //     req.user = decoded; // Attach decoded token data to `req.user`
-    //     next();
-    // } catch (error) {
-    //     res.status(401).json({ message: 'Invalid token!' });
-    // }
     try {
         const decoded = jwt.verify(token, process.env.JWT_KEY);
         console.log('Decoded Token:', decoded);

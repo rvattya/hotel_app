@@ -16,6 +16,11 @@ const Addhotel = () => {
     abouthotel: "",
     totalrooms: "",
   });
+const [files, setFiles]= useState([]);
+  // Get token from local storage
+
+const token = localStorage.getItem("token");
+
 
   // Handle input change for main fields
   const handleInputChange = (e) => {
@@ -48,12 +53,36 @@ const Addhotel = () => {
         : prevData.hotelfacilities.filter((facility) => facility !== value),
     }));
   };
+  const handleFileChange = (e) => {
+    setFiles(Array.from(e.target.files));
+  };
 
   // Handle form submission
   const Addhoteldata = async (e) => {
     e.preventDefault(); // Prevent form refresh
     try {
-      await axios.post("http://localhost:1111/add-hotel", hoteldata);
+      const formData = new FormData();
+      formData.append("hotalname", hoteldata.hotalname);
+      formData.append("hoteladdress[cityname]", hoteldata.hoteladdress.cityname);
+      formData.append("hoteladdress[statename]", hoteldata.hoteladdress.statename);
+      formData.append("hoteladdress[pincode]", hoteldata.hoteladdress.pincode);
+      formData.append("hotelcontectnumber", hoteldata.hotelcontectnumber);
+      hoteldata.hotelfacilities.forEach((facility) =>
+        formData.append("hotelfacilities", facility)
+      );
+      formData.append("abouthotel", hoteldata.abouthotel);
+      formData.append("totalrooms", hoteldata.totalrooms);
+      files.forEach((file) => formData.append("images", file));
+
+      // await axios.post("http://localhost:1111/add-hotel", hoteldata);
+      await axios.post("http://localhost:1111/add-hotel", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`, // Include the token in the header
+
+        },
+      });
+
       alert("Hotel added successfully!");
       setHoteldata({
         hotalname: "",
@@ -68,6 +97,8 @@ const Addhotel = () => {
         abouthotel: "",
         totalrooms: "",
       });
+      setFiles([]);
+
     } catch (error) {
       console.error(error);
       alert("Error found, please try again later.");
@@ -198,7 +229,7 @@ const Addhotel = () => {
             <div className="row">
               {[1, 2, 3].map((index) => (
                 <div className="col-md-4 mb-2" key={index}>
-                  <input type="file" className="form-control-file"  onChange={(e)=>setHoteldata(...hoteldata,[e.target.value])}/>
+                  <input type="file" className="form-control-file"  onChange={handleFileChange}/>
                 </div>
               ))}
             </div>
@@ -234,3 +265,5 @@ const Addhotel = () => {
 };
 
 export default Addhotel;
+
+

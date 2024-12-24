@@ -14,7 +14,7 @@ import Allbooking from '../Admin/Allbooking';
 import Adminlogin from '../../components/Adminlogin';
 import Adminlogout from '../../components/Adminlogout';
 import Adminprofile from '../../components/Adminprofile';
-import Home from '../User/Home';
+
 
 const Adminleyout = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);

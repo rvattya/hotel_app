@@ -2,18 +2,18 @@ const UserModel = require('../Models/UserModel');
 const bcrypt = require('bcrypt');
 const JWT = require('jsonwebtoken');
 const dotenv = require('dotenv');
-const {singlefile}= require('../Middleweres/multerMiddleware')
+const {singleFileUpload}= require('../Middleweres/multerMiddleware')
 dotenv.config();
 
 
-
 const signup = async (req, res) => {
-    singlefile(req,res,async(err)=>{
+    singleFileUpload(req,res,async(err)=>{
         if(err){
+            console.error("Multer error:", err);
             return res.status(403).json({message:err.message});
         }
         // if user not update profie photo
-        if(!req.files || req.files.length=== 0){
+        if(!req.file){
             return res.status(400).json({ message: "Please upload profile images." });
 
         }
@@ -36,7 +36,7 @@ const signup = async (req, res) => {
             email,
             phone,
             password: hashpassword,
-            profileImage,
+            profileImage: req.file.path,
             role, // Will be set to 'user' if not provided
         });
 
@@ -53,7 +53,6 @@ const signup = async (req, res) => {
     }
 });
 };
-
 // admin for admin
 
 const adminlogin = async (req, res) => {
@@ -83,15 +82,12 @@ const adminlogin = async (req, res) => {
         res.cookie("token", token, {httpOnly:true, secure: false,
             path: "/admin-panel",
         });
+        
         res.status(200).json({ message: "Admin logged in successfully", token });
-        console.log("Generated Token:", token);
-
-
+        // console.log("Generated Token:", token);
 
     } catch (error) {
         res.status(500).json({ mesaage: "something want rong", error: error.mesaage });
-
-
     }
 
 };
@@ -103,9 +99,7 @@ try {
     res.status(200).json({message: "Admin profile", Admin});
 } catch (error) {
     res.status(401).json({ message: "Unauthorized" });
-
 }
-
 };
 const Adminlogout= async (req, res)=>{
     try{
@@ -114,10 +108,7 @@ const Adminlogout= async (req, res)=>{
     }
     catch(error){
         res.status(500).json({ message: "Error during logout", error: error.message });
-
-
     }
-
 }
 
 const getalluser = async (req, res) => {
