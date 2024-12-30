@@ -3,8 +3,9 @@ const bcrypt = require('bcrypt');
 const JWT = require('jsonwebtoken');
 const dotenv = require('dotenv');
 const {singleFileUpload}= require('../Middleweres/multerMiddleware')
-
 dotenv.config();
+
+
 const signup = async (req, res) => {
     singleFileUpload(req,res,async(err)=>{
         if(err){
@@ -71,6 +72,7 @@ const login = async (req, res) => {
             process.env.JWT_KEY,
             { expiresIn: '24h' } // Token expiry is set to 24 hours
         );
+        res.cookie("token",token,{httpOnly:true, secure: false, path:'/'});
 
         res.status(200).json({ message: "Login successful", token });
     } catch (error) {
@@ -110,5 +112,48 @@ const updateUserRole = async (req, res) => {
         res.status(500).json({ message: 'Something went wrong' });
     }
 };
+// const userprofile= async (req, res)=>{
+// const token=  localStorage.getItem('token');
+// const profile= await UserModel.findById(req.params.id);
+// if(!token){
+//     res.status(401).json({message: "Unathorized"});
+// }try{
+//     const user= JWT.verify(token,process.env.JWT_KEY);
+//     res.status(200).json({message: "user profile", user},profile);
+// }
+// catch (error) {
+//     res.status(401).json({ message: "Unauthorized" });
+// }
 
-module.exports = { signup, login, updateUserRole };
+// };
+
+const userprofile= async (req, res)=>{
+    const token = req.headers.authorization?.split(' ')[1]; // Extract token from header
+    if (!token) {
+        return res.status(401).json({ message: "Unauthorized: No token provided" });
+    }
+    try {
+        const decodedToken = JWT.verify(token, process.env.JWT_KEY); // Verify the token
+        const userId = decodedToken.id; // Extract user ID from the token
+        const user = await UserModel.findById(userId); // Fetch user by ID
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        res.status(200).json(user); // Send user data
+    } catch (error) {
+        console.error("Error fetching user profile:", error);
+        res.status(401).json({ message: "Unauthorized: Invalid token" });
+    }
+};
+
+const editprofile= async (req, res)=>{
+
+}
+const logout= async (req, res)=>{
+    res.clearCookie('token');
+    // localStorage.removeItem("token");
+    res.status(200).json({message: "Logout successful"});
+
+}
+
+module.exports = { signup, login, updateUserRole,userprofile,editprofile,logout};

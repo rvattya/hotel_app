@@ -14,6 +14,8 @@ import Allbooking from '../Admin/Allbooking';
 import Adminlogin from '../../components/Adminlogin';
 import Adminlogout from '../../components/Adminlogout';
 import Adminprofile from '../../components/Adminprofile';
+import PrivateRoute from '../../components/PrivateRoute';
+import { useAuth } from '../../context/AuthContext';
 
 
 const Adminleyout = () => {
@@ -49,7 +51,6 @@ const Adminleyout = () => {
     };
 
     return (
-        <BrowserRouter>
             <Layout
                 isAuthenticated={isAuthenticated}
                 onLogout={handleLogout}
@@ -57,7 +58,6 @@ const Adminleyout = () => {
                 PrivateRoutes={PrivateRoutes}
             />
             
-        </BrowserRouter>
     );
 };
 
@@ -74,7 +74,7 @@ const Layout = ({ isAuthenticated, onLogout, onLogin, PrivateRoutes }) => {
             )}
             <div className="flex-1 w-[80%]">
                 {/* Render Admin Header if authenticated and not on login page */}
-                {isAuthenticated && location.pathname !== '/admin-login' && (
+                {isAuthenticated && location.pathname !== '/admin/admin-login' && (
                     <Adminheader onLogout={onLogout} />
                 )}
                 <Routes>
@@ -95,7 +95,9 @@ const Layout = ({ isAuthenticated, onLogout, onLogin, PrivateRoutes }) => {
                 </Routes>
             </div>
         </div>
+        
     );
 };
 
 export default Adminleyout;
+

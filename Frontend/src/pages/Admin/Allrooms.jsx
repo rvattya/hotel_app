@@ -1,54 +1,66 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Editroom from '../Admin/Editroombyid'
 
 const Allrooms = () => {
-  // Sample room data
+  const [editingroomId, setEditingroomId] = useState(null); // Track which hotel is being edited
   const [rooms, setRooms] = useState([]);
+  
+  // const navigate = useNavigate();
+  const token = localStorage.getItem("token");
 
-  useEffect(()=>{
-    const fetchroom= async ()=>{
+
+  useEffect(() => {
+    const fetchroom = async () => {
       try {
-        const response= await axios.get("http://localhost:1111/all-rooms");
+        const response = await axios.get("http://localhost:1111/all-rooms", {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include token
+          },
+        });
         setRooms(response.data);
       } catch (error) {
-        console.error("error room data not Fatch",error)
-        
+        console.error("error room data not Fatch", error);
       }
     };
     fetchroom();
-
-
-  },[])
-
+  }, [token]);
 
   // Edit Handler
-  const handleEdit = async (id) => {
-    alert(`Edit room with ID: ${id}`);
-    const editroom= window.confirm("edit room details ");
-    if(editroom){
-      try {
-        await axios.put(`http://localhost:1111/rooms/${id}`);
-        setRooms(rooms.filter((room=> room.id !== id)));
-
-        
-      } catch (error) {
-        console.error("error found room not update",error)
-        
-      }
-    }
-   
+  const handleEdit = (id) => {
+    setEditingroomId(id);
+    // navigate(`/admin/edit-room/${id}`);
   };
+  const handleCloseEditModal= ()=>{
+    setEditingroomId(null);
+  }
+//function to handle room update
+const handleroomUpdate= async()=>{
+  try {
+    await axios.put(`http://localhost:1111/hotels/${updatedRoom._id}`, updatedRoom,{headers: {
+      Authorization: `Bearer ${token}`,
+    },});
+    setRooms(rooms.map((room)=>room._id===updatedRoom._id?updatedRoom:room))
+    handleCloseEditModal();
 
+    
+  } catch (error) {
+          console.error("Error updating hotel:", error);
+
+  }
+}
   // Delete Handler
   const handleDelete = async (id) => {
     const confirmed = window.confirm("Are you sure you want to delete this room?");
     if (confirmed) {
-      try{
-
-        await axios.delete(`http://localhost:1111/rooms/${id}`);
-        setRooms(rooms.filter((room) => room.id !== id));
-      }
-      catch(error){
+      try {
+        await axios.delete(`http://localhost:1111/rooms/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include token
+          },
+        });
+        setRooms(rooms.filter((room) => room._id !== id));
+      } catch (error) {
         console.error("Error deleting room:", error);
       }
     }
@@ -87,15 +99,15 @@ const Allrooms = () => {
           <tbody>
             {rooms.map((room) => (
               <tr
-                key={room.id}
+                key={room._id}
                 className="border-t border-gray-200 hover:bg-gray-50"
               >
-                <td className="px-4 py-2 text-sm text-gray-700">{room.hotelname}</td>
+                <td className="px-4 py-2 text-sm text-gray-700">{room.hotelname?.hotalname}</td>
                 <td className="px-4 py-2 text-sm text-gray-700">{room.roomname}</td>
                 <td className="px-4 py-2 text-sm text-gray-700">{room.roomrate}</td>
                 <td className="px-4 py-2 text-sm text-gray-700">{room.capacity}</td>
                 <td className="px-4 py-2 text-sm text-gray-700">
-                  {room.filenames.map((file, index) => (
+                  {room.filenames?.map((file, index) => (
                     <img
                       key={index}
                       src={file}
@@ -107,13 +119,13 @@ const Allrooms = () => {
                 <td className="px-4 py-2 text-sm text-gray-700">{room.aboutroom}</td>
                 <td className="px-4 py-2 text-sm text-gray-700">
                   <button
-                    onClick={() => handleEdit(room.id)}
+                    onClick={() => handleEdit(room._id)}
                     className="bg-blue-500 text-white px-3 py-1 rounded-md text-sm mr-2 hover:bg-blue-600"
                   >
                     Edit
                   </button>
                   <button
-                    onClick={() => handleDelete(room.id)}
+                    onClick={() => handleDelete(room._id)}
                     className="bg-red-500 text-white px-3 py-1 rounded-md text-sm hover:bg-red-600"
                   >
                     Delete
@@ -124,6 +136,15 @@ const Allrooms = () => {
           </tbody>
         </table>
       </div>
+      {/* Render the EditHotel component if editingroomId is not null */}
+      {editingroomId && (
+       <Editroom
+         roomId={editingroomId}
+         onClose={handleCloseEditModal}
+         onUpdate={handleroomUpdate}
+         rooms={rooms}
+       />
+     )}
     </div>
   );
 };

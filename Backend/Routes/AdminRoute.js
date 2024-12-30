@@ -31,7 +31,7 @@ router.put('/hotels/:id',adminAuth, editHotelbyid)
 router.get('/hotels/:id', adminAuth, getHotelById)
 router.delete('/hotels/:id', adminAuth,deleteHotelbyid)
 
-router.post('/add-room', adminAuth, addRoom)
+router.post('/add-room', addRoom)
 router.get('/all-rooms',adminAuth, getAllRooms)
 router.get('/rooms/:id',adminAuth, getRoomById)
 router.put('/rooms/:id',adminAuth, editRoombyid)

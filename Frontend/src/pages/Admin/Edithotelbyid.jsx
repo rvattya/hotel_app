@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -19,10 +17,7 @@ const EditHotel = ({ hotelId, onClose, onUpdate, hotels }) => {
     totalrooms: "",
   });
   const token = localStorage.getItem("token");
-const styledata={
-    
 
-}
   useEffect(() => {
     const fetchHotelDetails = async () => {
       try {

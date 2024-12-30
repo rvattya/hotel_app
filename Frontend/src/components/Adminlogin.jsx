@@ -18,7 +18,7 @@ const Adminlogin = ({onLogin}) => {
                 if(responce.data.token){
                   localStorage.setItem("token", responce.data.token);
                   onLogin();
-                  navigate("/admin-panel");
+                  navigate("/admin/admin-panel");
                 }
                 else{
                   console.log("errer");

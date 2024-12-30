@@ -27,14 +27,14 @@ const Adminsidebar = () => {
   return (
     <>
       <div className='admin-sidebar-comp ' >
-        <Link to='/admin-panel'>
+        <Link to='/admin/admin-panel'>
           <div className="logo  py-3 px-4 ">
             <img src={logo} alt="Logo" className='w-[220px] h-[70px] ' />
           </div>
         </Link>
         <div className="admin-sidebar-taps flex ">
 
-          <Link to='/admin-panel'> <Button className='sidebar-taps-btn w-100 '> <span className='mr-3  w-[25px] h-[20px] flex items-center justify-center rounded-md'><MdDashboardCustomize />
+          <Link to='/admin/admin-panel'> <Button className='sidebar-taps-btn w-100 '> <span className='mr-3  w-[25px] h-[20px] flex items-center justify-center rounded-md'><MdDashboardCustomize />
           </span>Dashboard</Button>
           </Link>
 
@@ -45,10 +45,10 @@ const Adminsidebar = () => {
           {/* {create sub menu} */}
           {opensubmenu.includes("Hotels") && (
             <div className="submenu flex  ">
-              <Link to="/all-hotels" className="submenu-item">Hotel List</Link>
-              <Link to="/add-hotel" className="submenu-item">Add Hotel</Link>
-              <Link to="/all-hotels" className="submenu-item">Manage Hotels</Link>
-              <Link to="/hotels/reviews" className="submenu-item">Hotel Reviews</Link>
+              <Link to="/admin/all-hotels" className="submenu-item">Hotel List</Link>
+              <Link to="/admin/add-hotel" className="submenu-item">Add Hotel</Link>
+              <Link to="/admin/all-hotels" className="submenu-item">Manage Hotels</Link>
+              <Link to="/admin/hotels/reviews" className="submenu-item">Hotel Reviews</Link>
             </div>
 
           )}
@@ -60,10 +60,10 @@ const Adminsidebar = () => {
           {/* {create sub menu} */}
           {opensubmenu.includes("rooms") && (
             <div className="submenu flex  ">
-              <Link to="/all-rooms" className="submenu-item">Room List</Link>
-              <Link to="/add-room" className="submenu-item">Add Room</Link>
-              <Link to="/all-rooms" className="submenu-item">Booked Rooms</Link>
-              <Link to="/rooms/reviews" className="submenu-item">Room Reviews</Link>
+              <Link to="/admin/all-rooms" className="submenu-item">Room List</Link>
+              <Link to="/admin/add-room" className="submenu-item">Add Room</Link>
+              <Link to="/admin/all-rooms" className="submenu-item">Booked Rooms</Link>
+              <Link to="/admin/rooms/reviews" className="submenu-item">Room Reviews</Link>
             </div>
 
           )}
@@ -75,9 +75,9 @@ const Adminsidebar = () => {
           {/* {create sub menu} */}
           {opensubmenu.includes("booking") && (
             <div className="submenu flex  ">
-              <Link to="/all-booking" className="submenu-item">booking List</Link>
-              <Link to="/add-bookings" className="submenu-item">Add booking</Link>
-              <Link to="/all-booking" className="submenu-item">Manage Booking</Link>
+              <Link to="/admin/all-booking" className="submenu-item">booking List</Link>
+              <Link to="/admin/add-bookings" className="submenu-item">Add booking</Link>
+              <Link to="/admin/all-booking" className="submenu-item">Manage Booking</Link>
             </div>
 
           )}
@@ -87,9 +87,9 @@ const Adminsidebar = () => {
           </span> All Users</Button>
           {opensubmenu.includes("user") && (
             <div className="submenu flex  ">
-              <Link to="/all-users" className="submenu-item">All Users</Link>
-              <Link to="/add-user" className="submenu-item">Add User</Link>
-              <Link to="/all-users" className="submenu-item">Manage User</Link>
+              <Link to="/admin/all-users" className="submenu-item">All Users</Link>
+              <Link to="/admin/add-user" className="submenu-item">Add User</Link>
+              <Link to="/admin/all-users" className="submenu-item">Manage User</Link>
             </div>
 
           )}

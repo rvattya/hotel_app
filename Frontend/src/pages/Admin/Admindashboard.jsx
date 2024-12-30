@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../Css/Admindash.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Bar, Line, Pie, Doughnut } from 'react-chartjs-2'
@@ -10,6 +10,18 @@ ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tool
 
 
 const Admindashboard = () => {
+  useEffect(()=>{
+    const fetchAdminProfile = async () => {
+      try {
+        const response = await window.api.get('/admin-profile');
+        console.log('Admin Profile:', response.data);
+      } catch (error) {
+        console.error('Error fetching admin profile:', error);
+      }
+    };
+
+    fetchAdminProfile();
+  },[]);
   console.log("inside deshboard");
   
   const data = {

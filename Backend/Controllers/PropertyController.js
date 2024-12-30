@@ -3,6 +3,7 @@ const Roommodel = require('../Models/RoomAddmodel');
 const { multipleFileUpload } = require('../Middleweres/multerMiddleware');
 
 
+
 const addHotel = async (req, res) => {
     multipleFileUpload(req, res, async (err) => {
         if (err) {
@@ -21,7 +22,7 @@ const addHotel = async (req, res) => {
             hotaladdress: req.body.hotaladdress, // Address array with street, city, state, and pincode
             hotelcontectnumber: req.body.hotelcontectnumber, // Contact number
             hotelfacilities: req.body.hotelfacilities, // Array of facilities
-            filename: req.files ? req.files.map(file => file.path) : [], // Uploaded file paths
+            filenames: req.files.map(file => file.path), // Uploaded file paths
             abouthotel: req.body.abouthotel, // About the hotel
             totalrooms: req.body.totalrooms
         });
@@ -32,6 +33,7 @@ const addHotel = async (req, res) => {
         res.status(500).json({ message: error.message });
     }});
 }
+
 
 const getAllHotels = async (req, res) => {
     try {
@@ -90,10 +92,21 @@ const getAllRooms = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+const getRoomsByHotelId = async (req, res) => {
+    try {
+        // const hotelId = req.params.hotelId;
+        const hotelId = req.params.id; // Use req.params.id to get hotel id
+
+        const rooms = await Roommodel.find({ hotalname: hotelId }).populate('hotelname');
+        res.status(200).json(rooms);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 
 const getRoomById = async (req, res) => {
     try {
-        const room = await Roommodel.findById(req.params.id).po;
+        const room = await Roommodel.findById(req.params.id);
         if (!room) return res.status(404).json({ message: 'Room not found' });
         res.status(200).json(room);
     } catch (error) {
@@ -128,8 +141,10 @@ const deleteHotelbyid = async (req, res) => {
 
 const editRoombyid= async (req,res)=>{
     try {
-        const hotel= await Roommodel.findByIdAndUpdate(req.params.id);
-        if(!hotel) return res.status(404).json({message: 'Room not found'})
+        const room= await Roommodel.findByIdAndUpdate(req.params.id, req.body, {new:true} );
+
+        if(!room) return res.status(404).json({message: 'Room not found'});
+        res.status(200).json({message: "room Update Successfully", room})
     } catch (error) {
 res.status(500).json({message: error.message})
         
@@ -137,12 +152,33 @@ res.status(500).json({message: error.message})
 }
 const deleteRoombyid= async (req,res)=>{
     try {
-        const hotel= await Roommodel.findByIdAndDelete(req.params.id);
-        if(!hotel) return res.status(404).json({message: 'Room not found'})
+        const room= await Roommodel.findByIdAndDelete(req.params.id);
+        if(!room) return res.status(404).json({message: 'Room not found'});
+
+        res.status(200).json({message: "Room Delete Successfully"});
     } catch (error) {
 res.status(500).json({message: error.message})
         
     }
 }
-
-module.exports = {editRoombyid, deleteRoombyid,addHotel, getAllHotels, getHotelById, addRoom, getAllRooms, getRoomById,editHotelbyid, deleteHotelbyid};
+const getHotelAndRoomDetails = async (req, res) => {
+    const { hotelId, roomId } = req.query;
+    try {
+        const hotel = await Hotelmodel.findById(hotelId);
+        if (!hotel) {
+            return res.status(404).json({ message: 'Hotel not found' });
+        }
+        const room = await Roommodel.findById(roomId);
+        if (!room) {
+            return res.status(404).json({ message: 'Room not found' });
+        }
+        res.status(200).json({
+            hotelName: hotel.hotalname,
+            roomName: room.roomname,
+            roomRate: room.roomrate,
+        });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+module.exports = {getHotelAndRoomDetails, getRoomsByHotelId,editRoombyid, deleteRoombyid,addHotel, getAllHotels, getHotelById, addRoom, getAllRooms, getRoomById,editHotelbyid, deleteHotelbyid};

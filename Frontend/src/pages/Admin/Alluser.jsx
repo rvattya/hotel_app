@@ -4,11 +4,17 @@ import React, { useEffect, useState } from "react";
 const AllUser = () => {
   // Sample user data
   const [users, setUsers] = useState([]);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fatchuser = async () => {
       try {
-        const response = await axios.get("http://localhost:1111/all-users");
+        const response = await axios.get("http://localhost:1111/all-users", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data", // Set content type
+          },
+        });
         setUsers(response.data);
 
       } catch (error) {
@@ -43,7 +49,9 @@ const handleDelete = async (id) => {
   const confirmed = window.confirm("Are you sure you want to delete this user?");
   if (confirmed) {
     try {
-      await axios.delete(`http://localhost:1111/user/${id}`);
+      await axios.delete(`http://localhost:1111/user/${id}`,{headers:{
+        Authorization: `Bearer ${token}`,
+      },});
       setUsers(users.filter((user) => user.id !== id)); // Update the UI after deletion
     } catch (error) {
       console.error("Error deleting hotel:", error);

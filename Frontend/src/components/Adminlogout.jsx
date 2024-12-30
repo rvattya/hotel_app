@@ -18,7 +18,7 @@ const Adminlogout = ({ onLogout }) => {
           onLogout(); // Clear authentication state
           console.log("logout admin");
           
-          navigate('/admin-login'); // Redirect to login page
+          window.location.href = '/admin/admin-login'; // Redirect to home page with full refresh
         } else {
           console.error('Logout failed:', response.data.message || 'Unknown error');
         }

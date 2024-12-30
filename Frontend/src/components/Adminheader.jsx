@@ -11,6 +11,12 @@ const Adminheader = () => {
   const openProfile = (click) => {
     setOpen(open === click ? null : click);
   };
+  const handlelogout=()=>{
+    localStorage.removeItem("token");setOpen(null);
+    window.location.href = '/admin/admin-login'; // Force full page reload and redirect to login
+
+
+  }
 
   return (
     <>
@@ -60,17 +66,17 @@ const Adminheader = () => {
               {/* Dropdown Menu */}
               {open === "profile" && (
                 <div className="submenu absolute right-0 mt-2 w-48 bg-white text-gray-800 shadow-lg rounded-md z-10">
-                  <Link to="/admin-profile" className="submenu-item block px-4 py-2 hover:bg-gray-200">
+                  <Link to="/admin/admin-profile" className="submenu-item block px-4 py-2 hover:bg-gray-200">
                     Profile
                   </Link>
-                  <Link to="/edit-profile" className="submenu-item block px-4 py-2 hover:bg-gray-200">
+                  <Link to="/admin/edit-profile" className="submenu-item block px-4 py-2 hover:bg-gray-200">
                     Edit Profile
                   </Link>
                   <hr className="border-gray-300" />
-                  <Link to="/settings" className="submenu-item block px-4 py-2 hover:bg-gray-200" >
+                  <Link to="/admin/settings" className="submenu-item block px-4 py-2 hover:bg-gray-200" >
                     Settings
                   </Link>
-                  <Link to="/admin-logout" onClick={() => {localStorage.removeItem("token");setOpen(null);}} className="submenu-item block px-4 py-2 text-red-500 hover:bg-gray-200" >
+                  <Link to="/admin/admin-logout" onClick={handlelogout} className="submenu-item block px-4 py-2 text-red-500 hover:bg-gray-200" >
                     Log Out
                   </Link>
                 </div>

@@ -30,7 +30,7 @@ const token = localStorage.getItem("token");
       [name]: value,
     }));
   };
-
+  
   // Handle input change for nested hoteladdress fields
   const handleAddressChange = (e) => {
     const { name, value } = e.target;
@@ -72,7 +72,7 @@ const token = localStorage.getItem("token");
       );
       formData.append("abouthotel", hoteldata.abouthotel);
       formData.append("totalrooms", hoteldata.totalrooms);
-      files.forEach((file) => formData.append("images", file));
+      files.forEach((file) => formData.append("filenames", file));
 
       // await axios.post("http://localhost:1111/add-hotel", hoteldata);
       await axios.post("http://localhost:1111/add-hotel", formData, {
@@ -223,7 +223,7 @@ const token = localStorage.getItem("token");
               required
             />
           </div>
-           {/* Hotel Images */}
+           {/* Hotel Images
            <div className="mb-4">
             <label className="font-semibold text-gray-600 block mb-2">Upload Hotel Images</label>
             <div className="row">
@@ -232,6 +232,22 @@ const token = localStorage.getItem("token");
                   <input type="file" className="form-control-file"  onChange={handleFileChange}/>
                 </div>
               ))}
+            </div>
+
+          </div> */}
+          {/* Room Images */}
+          <div className="mb-4">
+            <label className="font-semibold text-gray-600 block mb-2">Upload Hotel Images</label>
+            <div className="row">
+              <div className="col-md-12 mb-2">
+                <input
+                  type="file"
+                  className="form-control-file"
+                  multiple
+                  onChange={handleFileChange}
+                  required
+                />
+              </div>
             </div>
           </div>
 

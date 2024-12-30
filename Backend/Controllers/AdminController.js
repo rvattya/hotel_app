@@ -79,8 +79,8 @@ const adminlogin = async (req, res) => {
         //generate token for isadmin
 
         const token = JWT.sign({ id: admin._id, email: admin.email, role: admin.role }, process.env.JWT_KEY, { expiresIn: "24h" });
-        res.cookie("token", token, {httpOnly:true, secure: false,
-            path: "/admin-panel",
+        res.cookie("token", token, {httpOnly:true, secure: process.env.NODE_ENV=== 'production',
+            path: "/",
         });
         
         res.status(200).json({ message: "Admin logged in successfully", token });
@@ -92,7 +92,7 @@ const adminlogin = async (req, res) => {
 
 };
 const Adminprofile= async(req,res)=>{
-const Token= req.cookies.token;
+const Token= localStorage.getItem("token");
 if(!Token)return res.status(401).json({message: "Unathorizrd"});
 try {
     const Admin= JWT.verify(Token, process.env.JWT_KEY);
@@ -101,6 +101,7 @@ try {
     res.status(401).json({ message: "Unauthorized" });
 }
 };
+
 const Adminlogout= async (req, res)=>{
     try{
         

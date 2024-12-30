@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Hotellist = () => {
   const [hoteldata, setHoteldata] = useState([]);
+  const navigate = useNavigate(); // React Router's navigation function
 
   // Fetch hotel data on component mount
   useEffect(() => {
@@ -30,20 +32,25 @@ const Hotellist = () => {
           >
             <img
               src={hotel.filename[0]}
-              alt={hotel.name}
+              alt={hotel.hotalname}
               className="w-full h-40 object-cover rounded-t-lg"
             />
             <div className="p-4">
-              <h2 className="text-xl font-bold text-gray-700">{hotel.hotalname}</h2>
-              <p className="text-gray-500">Contact Number:- {hotel.hotelcontectnumber}</p>
+              <h2 className="text-xl font-bold text-gray-700">
+                {hotel.hotalname}
+              </h2>
+              <p className="text-gray-500">
+                Contact Number: {hotel.hotelcontectnumber}
+              </p>
               <p className="text-red-400 font-semibold mt-2">
                 TotalRooms: {hotel.totalrooms}
               </p>
-              <p className=" font-semibold mt-2">
-                 {hotel.abouthotel}
-              </p>
-              <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-                Book Now
+              <p className="font-semibold mt-2">{hotel.abouthotel}</p>
+              <button
+                className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+                onClick={() => navigate(`/hotels/${hotel._id}`)} // Redirect to the hotel page
+              >
+                More Info
               </button>
             </div>
           </div>
